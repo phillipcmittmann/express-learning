@@ -20,6 +20,16 @@ app.get("/ola/:nome/:empresa", function(request, response) {
     response.send(`<h1>Oi ${request.params.nome} da empresa.</h1>`);
 });
 
+app.get("/canal/youtube", function(request, response) {
+    var canal = request.query["canal"];
+    
+    if (canal) {
+        response.send(canal);
+    } else {
+        response.send("Nenhum canal fornecido.");
+    }
+});
+
 app.listen(4000, function(error) {
     if(error) {
         console.log("Ocorreu um erro.");
